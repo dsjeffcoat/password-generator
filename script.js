@@ -62,13 +62,13 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     // console.log(typesCount)
 
-    const typesArray = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0])
+    const typesArray = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0])
 
     if (typesCount === 0) {
         return ''
     }
 
-    for (let i=0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         typesArray.forEach(type => {
             const funcName = Object.keys(type)[0]
             // console.log(funcName)
@@ -83,6 +83,25 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     // console.log(typesArray)
 }
+
+
+// Clipboard Functionality 
+
+clipboardEl.addEventListener('click', () => {
+    const textarea = document.createElement('textarea')
+    const password = resultEl.innerText
+
+    if (!password) {
+        return
+    } else {
+        textarea.value = password
+        document.body.appendChild(textarea)
+        textarea.select()
+        document.execCommand('copy')
+        textarea.remove()
+        alert('Password has been copied to your clipboard.')
+    }
+})
 
 // console.log(getRandomLower())
 // console.log(getRandomSymbol())
