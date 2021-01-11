@@ -99,7 +99,7 @@ clipboardEl.addEventListener('click', () => {
         textarea.select()
         document.execCommand('copy')
         textarea.remove()
-        alert('Password has been copied to your clipboard.')
+        alert('Password copied to your clipboard successfully.')
     }
 })
 
